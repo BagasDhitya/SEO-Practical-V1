@@ -25,7 +25,11 @@ interface ProductDetailPageProps {
     };
 }
 
-export default async function ProductDetailPage({ params }: ProductDetailPageProps) {
+export default async function ProductDetailPage({
+    params,
+}: {
+    params: { id: string };
+}) {
     const res = await axios.get<Product>(`/products/${params.id}`);
     const product = res.data;
 
