@@ -6,8 +6,8 @@ const APP_ID = process.env.NEXT_PUBLIC_BACKENDLESS_APP_ID;
 const API_KEY = process.env.NEXT_PUBLIC_BACKENDLESS_API_KEY;
 
 module.exports = {
-    // 🌍 URL utama website (harus domain production, misalnya "https://warungku.com")
-    siteUrl: "https://warungku.com",
+    // 🌍 URL utama website (harus domain production, misalnya "https://seo-practical-v1.vercel.app/")
+    siteUrl: "https://seo-practical-v1.vercel.app/",
 
     // 📄 Auto-generate robots.txt (biar mesin pencari tahu halaman mana yang boleh/cuma-cuma di-crawl)
     generateRobotsTxt: true,
