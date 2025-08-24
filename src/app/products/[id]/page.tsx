@@ -20,7 +20,7 @@ export async function generateStaticParams() {
 }
 
 // ❌ Jangan pake interface / typing manual
-export default async function ProductDetailPage({ params }: any) {
+export default async function ProductDetailPage({ params }: { params: Record<string, string> }) {
     const res = await axios.get<Product>(`/products/${params.id}`);
     const product = res.data;
 
