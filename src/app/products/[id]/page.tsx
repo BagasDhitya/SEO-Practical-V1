@@ -1,5 +1,6 @@
 // app/products/[id]/page.tsx
 import axios from "@/lib/axios";
+import Image from "next/image";
 
 type Product = {
     objectId: string;
@@ -18,27 +19,19 @@ export async function generateStaticParams() {
     }));
 }
 
-// ✅ Tambahin type khusus buat props
-interface ProductDetailPageProps {
-    params: {
-        id: string;
-    };
-}
-
-export default async function ProductDetailPage({
-    params,
-}: {
-    params: { id: string };
-}) {
+// ❌ Jangan pake interface / typing manual
+export default async function ProductDetailPage({ params }: any) {
     const res = await axios.get<Product>(`/products/${params.id}`);
     const product = res.data;
 
     return (
         <main className="px-6 py-10 max-w-3xl mx-auto">
             <div className="bg-white shadow rounded-lg p-6 flex flex-col md:flex-row gap-6">
-                <img
+                <Image
                     src={product.image}
                     alt={product.title}
+                    width={500}
+                    height={300}
                     className="w-full md:w-1/2 h-72 object-cover rounded-lg"
                 />
                 <div className="flex-1">
