@@ -1,0 +1,9 @@
+# *
+User-agent: *
+Allow: /
+
+# Host
+Host: https://warungku.com
+
+# Sitemaps
+Sitemap: https://warungku.com/sitemap.xml
