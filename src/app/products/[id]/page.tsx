@@ -10,7 +10,7 @@ type Product = {
     ratings?: number;
 };
 
-// Generate Static Params (biar Next.js tau id apa aja yang bisa dibuat)
+// Generate Static Params
 export async function generateStaticParams() {
     const res = await axios.get<Product[]>("/products");
     return res.data.map((product) => ({
@@ -18,11 +18,14 @@ export async function generateStaticParams() {
     }));
 }
 
-export default async function ProductDetailPage({
-    params,
-}: {
-    params: { id: string };
-}) {
+// ✅ Tambahin type khusus buat props
+interface ProductDetailPageProps {
+    params: {
+        id: string;
+    };
+}
+
+export default async function ProductDetailPage({ params }: ProductDetailPageProps) {
     const res = await axios.get<Product>(`/products/${params.id}`);
     const product = res.data;
 
