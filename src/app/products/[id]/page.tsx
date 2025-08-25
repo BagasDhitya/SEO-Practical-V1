@@ -1,3 +1,5 @@
+'use client'
+
 // app/products/[id]/page.tsx
 import axios from "@/lib/axios";
 import Image from "next/image";
