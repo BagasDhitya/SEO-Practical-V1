@@ -5,7 +5,7 @@ import Link from "next/link";
 import Image from "next/image";
 import { usePathname } from "next/navigation";
 import { useEffect } from "react";
-import { event, pageview } from "@/lib/googleAnalytics";
+import { event, pageview, initGA } from "@/lib/googleAnalytics";
 
 type Product = {
     objectId: string;
@@ -20,6 +20,7 @@ export default function ProductListClient({ products }: { products: Product[] })
     const pathname = usePathname();
 
     useEffect(() => {
+        initGA()
         pageview(pathname); // track pageview hanya di browser
     }, [pathname]);
 
